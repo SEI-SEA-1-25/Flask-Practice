@@ -7,11 +7,14 @@
   <title>Recipe</title>
 </head>
 <body>
-  <h1>Pie name: {{ pie name }}</h1>
-  <h3>Ingredients: {{ ingredients }}</h3>
+  <h1>Recipe page!</h1>
+  <ul>  
+    {% for ingredient in ingredients: %}
+      <li>{{ ingredient }}</li>
+    {% endfor %}
+  </ul>
   <form method="POST" action="/recipe">
-    <label for="ingredient-input">New Ingredient</label>
-    <input type="text" id="ingredient-input" name="ingredient">
+    <input name="ingredient" type="text">
     <input type="submit">
   </form>
 </body>
