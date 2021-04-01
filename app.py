@@ -23,5 +23,5 @@ ingredients = {
 @app.route('/pie')
 def pie():
     global ingredients
-    rand_idx = random.randint(0, len(ingredients) - 1)
+    rand_idx = random.randint(0, len(ingredients) - 2)
     return jsonify({"pie ingredient": ingredients[rand_idx]})
