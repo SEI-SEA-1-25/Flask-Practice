@@ -21,8 +21,8 @@ jason_json = [
 def pie():
     global jason_json
     if request.method == 'GET':
-        random_index = random.randint(0, 2)
-        return jsonify({ 'jason': jason_json[random_index] })
+        random_index = random.choice(jason_json)
+        return jsonify({ 'jason': random_index })
 
 ingredients = [
     'Sugar',
@@ -43,5 +43,3 @@ def recipe():
         ingredient = request.form['ingredient']
         ingredients.append(ingredient)
         return redirect('/recipe')
-
-
