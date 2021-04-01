@@ -12,12 +12,12 @@ def home_page():
 def greeting():
     return render_template("greeting", name="Strawberry Shortcakes")
 
-ingredients = {
+ingredients = [
     "apple caramel",
     "pecan",
     "sprinkles",
     "blueberry"
-}
+]
 
 
 @app.route('/pie')
