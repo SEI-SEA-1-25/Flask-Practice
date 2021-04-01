@@ -33,7 +33,6 @@ ingredients = [
 @app.route('/recipe', methods=['GET', 'POST'])
 def recipe():
     global ingredients
-    idx_range = range(len(ingredients))
     if request.method == 'GET':
         return render_template(
             'recipe.html', 
