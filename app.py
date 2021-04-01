@@ -42,18 +42,18 @@ def recipe_api():
         return redirect('/api/recipes')
 
 
-recipe = {
-    'ingredient 1': 'Vidalia Onions',
-    'ingredient 2': 'Cippolini Onions',
-    'ingredient 3': 'Walla Walla Sweet Onions',
-    'ingredient 4': 'Shallots',
-    'ingredient 5': 'Batonnet of Pork Belly',
-    'ingredient 6': 'Garlic',
-    'ingredient 7': 'Flour',
-    'ingredient 8': 'Butter',
-    'ingredient 9': 'Salt',
-    'ingredient 10': 'Pedro Ximenez'
-}
+recipe = [
+    'Vidalia Onions',
+    'Cippolini Onions',
+    'Walla Walla Sweet Onions',
+    'Shallots',
+    'Batonnet of Pork Belly',
+    'Garlic',
+     'Flour',
+     'Butter',
+     'Salt',
+     'Pedro Ximenez'
+]
 
 @app.route('/recipes', methods=['GET', 'POST'])
 def recipes():
@@ -61,4 +61,7 @@ def recipes():
 
     if request.method == 'GET':
         return render_template('recipe.html',recipe=recipe)
-
+    elif request.method == 'POST':
+        ingredient = request.form['ingredient']
+        recipe.append(ingredient)
+        return redirect('/recipes')
