@@ -10,11 +10,18 @@ def home_page():
 # GET /
 @app.route("/greeting")
 def greeting():
-    return render_template("greeting")
+    return render_template("greeting", name="Strawberry Shortcakes")
+
+ingredients = {
+    "apple caramel",
+    "pecan",
+    "sprinkles",
+    "blueberry"
+}
 
 
 @app.route('/pie')
-def return_pie_ingredients():
-    ingredients = ['crust','filling','pie pan', 'sugar', 'love', '45 minutes' ,'mama\'s homestyle technique']
-    randIndex = random.randrange(0,len(ingredients),1)
-    return jsonify({'pie ingredient':ingredients[randIndex]})
+def pie():
+    global ingredients
+    rand_idx = random.randint(0, len(ingredients) - 1)
+    return jsonify({"pie ingredient": ingredients[rand_idx]})
