@@ -14,7 +14,7 @@ def greeting():
 jason_json = [
     "momoa",
     "alex gordon's brother",
-    "schwartzman",
+    "schwartzman"
 ]
 
 @app.route('/pie', methods=['GET'])
