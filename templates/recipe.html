@@ -9,12 +9,14 @@
 <body>
     <h1>{{ piename }}</h1>
     <h4>Ingredients:</h4>
+    
     {% for ingredient in ingredients %}
     <ul>
-        <li>{{ingredient}}</li>
+        <li>{{ ingredient }}</li>
     </ul>
     {% endfor %}
     <p>Add more ingredients:</p>
+
     <form action="/recipe" method="POST">
         <label for="form-input">New Ingredient:</label>
         <input id="form-input" type="text" name="ingredient"/>

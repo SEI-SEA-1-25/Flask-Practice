@@ -12,7 +12,7 @@ def greeting():
     return render_template('index.html', name='Luigi')
 
 jason_json = [
-    "samoa",
+    "momoa",
     "alex gordon's brother",
     "schwartzman",
 ]
