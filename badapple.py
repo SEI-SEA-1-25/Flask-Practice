@@ -17,6 +17,14 @@ def greeting():
   return render_template('greeting.html')
 
 
+
+ingredients = [
+  "blueberry",
+  "rasberry",
+  "appleberry"
+]
+
+
 # JSON route
 @app.route('/pie')
 def pie():
