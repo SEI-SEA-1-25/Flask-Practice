@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect
+import random
 
 app = Flask(__name__)
 
@@ -20,5 +21,28 @@ jason_json = [
 def pie():
     global jason_json
     if request.method == 'GET':
-        return jsonify({ 'jason': jason_json[0] })
+        random_index = random.randint(0, 2)
+        return jsonify({ 'jason': jason_json[random_index] })
+
+ingredients = [
+    'Sugar',
+    'Spice',
+    'Everything nice'
+]
+
+@app.route('/recipe', methods=['GET', 'POST'])
+def recipe():
+    global ingredients
+    idx_range = range(len(ingredients))
+    if request.method == 'GET':
+        return render_template(
+            'recipe.html', 
+            piename='Rhubarbara Anne', 
+            ingredients=ingredients
+            )
+    if request.method == 'POST':
+        ingredient = request.form['ingredient']
+        ingredients.append(ingredient)
+        return redirect('/recipe')
+
 
